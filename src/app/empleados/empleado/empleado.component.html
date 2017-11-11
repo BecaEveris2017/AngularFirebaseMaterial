@@ -1,0 +1,35 @@
+<p>
+  insertar Empleado
+</p>
+<form #empleadoForm="ngForm" (ngSubmit)="onSubmit(empleadoForm)">
+  <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.$key">
+  <div class="frm-group">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" name="nombre" #name="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.nombre" placeholder="Nombre" required>
+    </mat-form-field> 
+  </div>
+  <div class="frm-group">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" name="posicion" #name="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.posicion" placeholder="Posicion">
+    </mat-form-field> 
+  </div>
+  <div class="frm-group">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" name="oficina" #name="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.oficina" placeholder="Oficina">
+    </mat-form-field> 
+  </div>
+  <div class="frm-group">
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" name="salario" #name="ngModel" [(ngModel)]="empleadoService.selectedEmpleado.salario" placeholder="Salario">
+    </mat-form-field> 
+  </div>
+  <br>
+  <div class="frm-group">
+    <button type="submit" mat-raised-button color="primary" [disabled]="!empleadoForm.valid"><span class="fa fa-floppy-o"></span> Guardar</button>
+    <button type="button" mat-raised-button color="primary" *ngIf="empleadoService.selectedEmpleado.$key != null" (click)="onDelete(empleadoForm)"><span class="fa fa-remove"></span> Eliminar</button>
+    <button type="button" mat-raised-button color="primary" (click)="resetForm()"><span class="fa fa-repeat"></span> Limpiar</button>
+  </div>
+</form>
+
+
+

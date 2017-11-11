@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import 'hammerjs';
+import '@angular/material';
 
 @Component({
   selector: 'app-root',
